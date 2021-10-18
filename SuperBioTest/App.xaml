@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:SuperBioTest"
              StartupUri="/MainWindow.xaml">
     <Application.Resources>
-         
+        <!--une ressource globale à toute l'application-->
+        <DropShadowEffect x:Key="shadowGridSplitterEffect" BlurRadius="15" Color="Black" Opacity="0.5" ShadowDepth="10"/>
     </Application.Resources>
 </Application>

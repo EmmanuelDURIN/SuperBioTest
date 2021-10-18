@@ -6,6 +6,16 @@
         xmlns:local="clr-namespace:SuperBioTest"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="500">
+    <Window.Resources>
+        <!--une ressource locale à la fenêtre-->
+        <!--<DropShadowEffect x:Key="shadowGridSplitterEffect" BlurRadius="10" Color="Black" ShadowDepth="10"/>-->
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="10 10" />
+            <Setter Property="Padding" Value="5 3" />
+            <Setter Property="Width" Value="80" />
+            <Setter Property="Effect" Value="{DynamicResource shadowGridSplitterEffect}" />
+        </Style>
+    </Window.Resources>
     <Grid x:Name="gridContent">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -13,11 +23,8 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <ListBox x:Name="listBoxRacks" Background="#FFBECCCD" Margin="10" />
-        <GridSplitter Grid.Column="1" 
+        <GridSplitter Effect="{DynamicResource shadowGridSplitterEffect}" Grid.Column="1" 
                       HorizontalAlignment="Center" Width="10" >
-            <GridSplitter.Effect>
-                <DropShadowEffect Color="Black" BlurRadius="10" ShadowDepth="10" />
-            </GridSplitter.Effect>
             <GridSplitter.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF111129"/>
@@ -35,15 +42,15 @@
             </Grid.ColumnDefinitions>
             <Grid x:Name="gridActions" >
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="20"/>
-                    <RowDefinition Height="20"/>
-                    <RowDefinition Height="20"/>
-                    <RowDefinition Height="20"/>
-                    <RowDefinition Height="20"/>
-                    <RowDefinition Height="20"/>
-                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <Button Content="Tester" />
+                <Button Content="Tester" Effect="{DynamicResource shadowGridSplitterEffect}" />
                 <Button Content="Lancer Run" Grid.Row="1" />
                 <Button Content="Voir alertes" Grid.Row="2" />
             </Grid>
