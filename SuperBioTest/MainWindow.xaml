@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SuperBioTest"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="500">
+        Title="MainWindow" Height="450" Width="500"
+        d:DataContext="{d:DesignInstance {x:Type local:MainViewModel}}">
     <Window.Resources>
         <!--une ressource locale à la fenêtre-->
         <!--<DropShadowEffect x:Key="shadowGridSplitterEffect" BlurRadius="10" Color="Black" ShadowDepth="10"/>-->
@@ -68,6 +69,24 @@
                 </Trigger>
             </ControlTemplate.Triggers>
         </ControlTemplate>
+        <DataTemplate x:Key="reagentsListBoxItemTemplate">
+            <!--Avec ItemsSource="{Binding }" on se lie à l'objet courant de la ligne
+            L'objet courant est une liste de reactifs-->
+            <ItemsControl ItemsSource="{Binding }" 
+                          ItemTemplate="{DynamicResource reagentTemplate}" >
+                <!--On change le ItemsPanel du ItemsControl
+                pour changer la disposition des enfants(horizontale)-->
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                
+            </ItemsControl>
+        </DataTemplate>
+        <DataTemplate x:Key="reagentTemplate">
+            <TextBlock Text="X" />
+        </DataTemplate>
     </Window.Resources>
     <Grid x:Name="gridContent">
         <Grid.ColumnDefinitions>
@@ -75,7 +94,10 @@
             <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <ListBox x:Name="listBoxRacks" Background="#FFBECCCD" Margin="10" />
+        <ListBox ItemTemplate="{DynamicResource reagentsListBoxItemTemplate}" 
+                 x:Name="listBoxRacks"
+                 Background="#FFBECCCD" Margin="10"
+                 ItemsSource="{Binding ReagentRacks}" />
         <GridSplitter Effect="{DynamicResource shadowGridSplitterEffect}" Grid.Column="1" 
                       HorizontalAlignment="Center" Width="10" >
             <GridSplitter.Background>
