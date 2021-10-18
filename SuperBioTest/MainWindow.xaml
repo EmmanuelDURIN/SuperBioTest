@@ -14,7 +14,60 @@
             <Setter Property="Padding" Value="5 3" />
             <Setter Property="Width" Value="80" />
             <Setter Property="Effect" Value="{DynamicResource shadowGridSplitterEffect}" />
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Width" Value="110"/>
+            <Setter Property="Template" Value="{DynamicResource ButtonTemplateRadius}"/>
         </Style>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <ControlTemplate x:Key="ButtonTemplateRadius" TargetType="{x:Type ButtonBase}">
+            <Border x:Name="border" 
+                    CornerRadius="8"
+                    Background="{TemplateBinding Background}" 
+                    BorderThickness="2" 
+                    BorderBrush="{TemplateBinding BorderBrush}" 
+                    SnapsToDevicePixels="true">
+                <StackPanel Orientation="Horizontal">
+                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" Margin="5 0 0 0" VerticalAlignment="Center" >
+                        <Image Source="/images/seringue.png" Width="15"  Margin="0" />
+                    </Border>
+                    <!--le ContentPresenter a pour role d'afficher le Content du bouton-->
+                    <ContentPresenter x:Name="contentPresenter" 
+                                  Focusable="False" 
+                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                  Margin="{TemplateBinding Padding}" 
+                                  RecognizesAccessKey="True" 
+                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                </StackPanel>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="Button.IsDefaulted" Value="true">
+                    <Setter Property="BorderBrush" 
+                            TargetName="border" 
+                            Value="{DynamicResource {x:Static 
+                        SystemColors.HighlightBrushKey}}"/>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                    <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="true">
+                    <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                    <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="false">
+                    <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                    <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                    <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
     </Window.Resources>
     <Grid x:Name="gridContent">
         <Grid.ColumnDefinitions>
@@ -37,7 +90,7 @@
         </GridSplitter>
         <Grid x:Name="gridRight" Grid.Column="2" Margin="0,0,0,0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="140"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid x:Name="gridActions" >
@@ -50,9 +103,9 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <Button Content="Tester" Effect="{DynamicResource shadowGridSplitterEffect}" />
+                <Button  Content="Tester" />
                 <Button Content="Lancer Run" Grid.Row="1" />
-                <Button Content="Voir alertes" Grid.Row="2" />
+                <Button Template="{DynamicResource roundedButtonTemplate}" Content="Voir alertes" Grid.Row="2" />
             </Grid>
             <ListBox Margin="0,10,0,10" Grid.Column="1"/>
         </Grid>

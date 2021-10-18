@@ -6,4 +6,19 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="images\seringue.png" />
+    <None Remove="seringue.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="images\seringue.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="seringue.png" />
+  </ItemGroup>
+
 </Project>

@@ -43,7 +43,6 @@ namespace SuperBioTest
             new Sample { Name = "Plasma", Volume=100, Patient="Valérie"},
           }
         );
-
       ReagentRacks.Add(
       new ReagentRack {
             new Reagent { Name = "Covid19", Volume=100 },
