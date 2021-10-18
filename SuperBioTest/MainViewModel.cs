@@ -45,18 +45,18 @@ namespace SuperBioTest
         );
       ReagentRacks.Add(
       new ReagentRack {
-            new Reagent { Name = "Covid19", Volume=100 },
-            new Reagent { Name = "Covid19", Volume=100 },
-            new Reagent { Name = "Covid19", Volume=100 },
-            new Reagent { Name = "Covid19", Volume=100 },
+            new Reagent { Name = "Covid19", Volume=100, ReagentStatus = ReagentStatus.Alert },
+            new Reagent { Name = "Covid19", Volume=100, ReagentStatus = ReagentStatus.OK},
+            new Reagent { Name = "Covid19", Volume=100, ReagentStatus = ReagentStatus.Warning},
+            new Reagent { Name = "Covid19", Volume=100, ReagentStatus = ReagentStatus.Alert},
         }
       );
       ReagentRacks.Add(
           new ReagentRack {
-            new Reagent { Name = "Insulina", Volume=100 },
-            new Reagent { Name = "Insulina", Volume=100 },
-            new Reagent { Name = "Insulina", Volume=100 },
-            new Reagent { Name = "Insulina", Volume=100 },
+            new Reagent { Name = "Insulina", Volume=100, ReagentStatus = ReagentStatus.Warning},
+            new Reagent { Name = "Insulina", Volume=100, ReagentStatus = ReagentStatus.OK},
+            new Reagent { Name = "Insulina", Volume=100, ReagentStatus = ReagentStatus.Alert},
+            new Reagent { Name = "Insulina", Volume=100, ReagentStatus = ReagentStatus.OK},
           }
         );
     }

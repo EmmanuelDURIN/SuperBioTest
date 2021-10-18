@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace SuperBioTest
 {
-  public class Reagent
+  public enum ReagentStatus
   {
-    public string Name { get; set; }
-    public double Volume { get; set; }
-    public ReagentStatus ReagentStatus { get; set; }
+    OK,
+    Warning,
+    Alert
   }
 }
