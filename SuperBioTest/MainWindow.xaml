@@ -1,0 +1,53 @@
+﻿<Window x:Class="SuperBioTest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SuperBioTest"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="500">
+    <Grid x:Name="gridContent">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox x:Name="listBoxRacks" Background="#FFBECCCD" Margin="10" />
+        <GridSplitter Grid.Column="1" 
+                      HorizontalAlignment="Center" Width="10" >
+            <GridSplitter.Effect>
+                <DropShadowEffect Color="Black" BlurRadius="10" ShadowDepth="10" />
+            </GridSplitter.Effect>
+            <GridSplitter.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF111129"/>
+                    <GradientStop Color="#FF111E94" Offset="0.226"/>
+                    <GradientStop Color="#FFACD9E8" Offset="1"/>
+                    <GradientStop Color="#FF2DCEF2" Offset="0.778"/>
+                    <GradientStop Color="#FF153DA4" Offset="0.385"/>
+                </LinearGradientBrush>
+            </GridSplitter.Background>
+        </GridSplitter>
+        <Grid x:Name="gridRight" Grid.Column="2" Margin="0,0,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid x:Name="gridActions" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+                <Button Content="Tester" />
+                <Button Content="Lancer Run" Grid.Row="1" />
+                <Button Content="Voir alertes" Grid.Row="2" />
+            </Grid>
+            <ListBox Margin="0,10,0,10" Grid.Column="1"/>
+        </Grid>
+    </Grid>
+</Window>
