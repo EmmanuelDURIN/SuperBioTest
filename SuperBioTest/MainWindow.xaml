@@ -81,11 +81,12 @@
                         <VirtualizingStackPanel Orientation="Horizontal" />
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
-                
             </ItemsControl>
         </DataTemplate>
         <DataTemplate x:Key="reagentTemplate">
-            <TextBlock Text="X" />
+            <!--<TextBlock Text="X" />-->
+            <!--le préfixe est nécessaire pour créer notre UserControl--> 
+            <local:UserControlReagent Margin="3 3" />
         </DataTemplate>
     </Window.Resources>
     <Grid x:Name="gridContent">

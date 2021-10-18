@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="SuperBioTest.UserControlReagent"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SuperBioTest"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel Orientation="Vertical">
+        <!--le path est beaucoup trop petit/grand !!!-->
+        <!--Le viewBox redimensionne son contenu en fonction de l'espace disponible-->
+        <Viewbox Width="30" Height="30" Stretch="Uniform">
+            <!--On peut utiliser Blen avec un projet .NET FRAMEWORK pour créer une forme (intersection, union, soustraction)
+                mais Illustrator est mieux ...-->
+            <Path Data="M1.5,1.5 L9.6759979,1.5 9.6759979,34.074001 88.676003,34.074001 88.676003,1.5 98.5,1.5 98.5,138.09183 98.5,142.06996 98.340088,142.06996 98.249596,143.09895 C95.765915,167.79347 75.111694,187.06401 50,187.06401 24.888304,187.06401 4.2340842,167.79347 1.7503998,143.09895 L1.6599077,142.06996 1.5,142.06996 1.5,138.09183 z" 
+                      Fill="#FF3131BB" Stretch="Fill" Stroke="Black" StrokeThickness="3"  />
+        </Viewbox>
+        <!--le DataContext courant du UserControl est un Reagent
+        on se binde avec le Name et le Volume qui sont des propriétés du reagent-->
+        <TextBlock Text="{Binding Name}" HorizontalAlignment="Center" />
+        <TextBlock Text="{Binding Volume}" HorizontalAlignment="Center"/>
+
+    </StackPanel>
+</UserControl>
